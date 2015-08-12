@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+<head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        
+        <link href="css/style.css" rel='stylesheet' type='text/css' />
+        <script type="text/javascript" src="js/jquery-2.1.4.js"></script>
+        <script type="text/javascript" src="js/logout.js"></script>
+
+        <title>Out Page</title>
+    </head>
+  <body>
+        <h3>Successfully log out...</h3>
+ <h3><span id='spanid'>3</span>s, redirecting to home page...</h3>
+    </body>
+    <script>
+        spanobj=document.getElementById('spanid');    
+        i=3;
+        setInterval(function(){
+            num=--i;
+            if(num<=0){
+                clearInterval();
+                location='index.html';
+            }
+            spanobj.innerHTML=num;
+        },1000);
+     </script>
+</html>

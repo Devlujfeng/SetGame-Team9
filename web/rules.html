@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="css/loginstyle.css" rel='stylesheet' type='text/css' />
+        <link href="css/style.css" rel='stylesheet' type='text/css' />
+        <link href="css/bootstrap.css" rel='stylesheet' type='text/css' />
+        <script src="js/jquery-1.11.0.min.js"></script>
+        <script src="js/jquery-1.11.0.min.js"></script>
+        <script type="text/javascript" src="js/move-top.js"></script>
+        <script type="text/javascript" src="js/easing.js"></script>
+        <script>
+        $(function(){  
+            function CheckSession() {
+                        $.get('validate').done(function(result){
+                            console.log(">>>>>>"+JSON.stringify(result));
+                            var x = JSON.parse(JSON.stringify(result));
+                           console.log(x);
+                            var m = JSON.parse(x);
+                            console.log("ddd>>>"+m["UserAccount"]);
+                            
+                            //console.log(m[0].UserAccount);
+            
+                        var session = m['UserAccount'];
+
+                        if (session === "null") {
+                            console.log("out");
+                            var list = document.getElementById("out");   // Get the <ul> element with id="myList"
+                            list.removeChild(list.childNodes[0]);
+                        }
+                        else{
+                            console.log("in");
+                            var list = document.getElementById("in");   // Get the <ul> element with id="myList"
+                            var list2 = document.getElementById("reg");
+                            list2.removeChild(list2.childNodes[0]);                
+                            list.removeChild(list.childNodes[0]);
+                            }
+                            });
+                    }
+        setInterval(CheckSession(),500);    
+        });
+        </script>
+        
+        <title>rules Page</title>
+    </head>
+    <body>
+<div class="header" id="home">
+		<div class="container">
+			<div class="logo">
+				<a href="index.html"><img src="images/logo-2.png" alt=""></a>
+			</div>
+			<div class="navigation">
+			 <span class="menu"></span> 
+				<ul class="navig">
+					<li><a class="active" href="index.html">Home</a></li>
+					<li><a href="about.html">About</a></li>
+					<li><a href="rules.html">Rules</a></li>
+					<li><a href="contact.html">Contact</a></li>
+                                        <li id="in"><a href="login.html">Login</a></li>
+                                        <li id="out"><a href="logout.html">Logout</a></li>
+                                         <li id="reg"><a href="register.html">Register</a></li>
+                                        
+				</ul>
+			</div>
+				 <!-- script-for-menu -->
+		 <script>
+				$("span.menu").click(function(){
+					$(" ul.navig").slideToggle("slow" , function(){
+					});
+				});
+		 </script>
+		 <!-- script-for-menu -->
+		</div>
+	</div>
+        
+        
+        
+    <div class="gallery">
+		<div class="container">
+			<div class="gallery-top heading">
+				<h1>OUR RULES</h1>
+			</div>
+		</div>
+
+			<div class="distracted">
+			
+				   <div class="well">
+					The object of the game is to identify a 'Set' of three cards from 12 cards laid out on the table. Each card has a variation of the following four features:
+
+ 
+
+				   </div>
+				   <div class="well">
+					1) COLOR: Each card is red, green, or blue. <br>
+                                        2) SYMBOL: Each card contains ovals, squiggles, or diamonds. <br>
+                                        3) NUMBER: Each card has one, two, or three symbols. <br>
+                                        4) SHADING: Each card is solid, open, or striped.<br>
+				   </div>
+				   <div class="well">
+					A 'Set' consists of three cards in which each feature is EITHER the same on each card OR is different on each card. That is to say, any feature in the 'Set' of three cards is either common to all three cards or is different on each card.
+				   </div>
+		    </div>
+            
+		</div>    
+        
+        
+        
+        
+        
+        <div class="footer">
+		<div class="container">
+			<div class="footer-top">
+				<div class="col-md-4 footer-left">
+					<p>Design by Team9</p>
+				</div>
+				<div class="col-md-4 footer-left">
+					<h3>Follow Us</h3>
+					<ul>
+						<li><a href="#"><span class="fb"> </span></a></li>
+						<li><a href="#"><span class="twit"> </span></a></li>
+						<li><a href="#"><span class="google"> </span></a></li>
+						<li><a href="#"><span class="pin"> </span></a></li>
+					</ul>
+				</div>
+				<div class="col-md-4 footer-left">
+					<h3>Address</h3>
+					<p>NUS ISS, 
+					<span>25 Heng Mui Keng Terrace</span>
+					</p>
+				</div>
+				<div class="clearfix"></div>
+			</div>
+		</div>
+		<script type="text/javascript">
+                                (function(){
+                                $().UItoTop({ easingType: 'easeOutQuart' });
+										
+									});
+                </script>
+		<a href="#home" id="toTop" class="scroll" style="display: block;"> <span id="toTopHover" style="opacity: 1;"> </span></a>
+	</div>
+        
+        
+        
+        
+        
+    </body>
+</html>
